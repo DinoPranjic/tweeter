@@ -28,6 +28,10 @@ button[type="submit"] {
   color: black;
 }
 
+.negativeCounter {
+  color: red;
+}
+
 .new-tweet h2 {
   margin-top: 50px;
 }
