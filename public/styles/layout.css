@@ -21,8 +21,37 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-body > nav {
-  font-family: 'Bungee', cursive;
+nav {
+  height: 120px;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  padding: 0 1.5em;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav button {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  color: #FFFFFF;
+}
+
+.buttonContainer, .logoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+nav span {
+  font-family:'Bungee', cursive;
+  transform: translateY(50%);
+  font-size: 36px;
+}
+
+.fa-solid.fa-angles-down {
+  text-align: center;
+  color: red;
 }
 
 /*
