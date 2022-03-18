@@ -11,6 +11,6 @@ header {
   background-image: url("/images/back-pattern.png");
 }
 
-h2 {
+.name {
   transform: translateY(-100%);
 }
