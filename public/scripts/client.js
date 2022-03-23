@@ -32,7 +32,7 @@ const createTweetElement = (data) => {
   const $name = $('<header><span>').text(data.user.name);
   const $handle = $('<span>').text(data.user.handle);
   const $content = $('<p>').text(data.content.text);
-  const $time = $('<footer><div>').text(data.created_at);
+  const $time = $('<footer><div>').text(`${timeago.format(data["created_at"])}`);
   const $icons = $('<div>').append('<i class="fa-solid fa-flag"></i>', '<i class="fa-solid fa-retweet"></i>', '<i class="fa-solid fa-heart"></i>');
 
   // Puts $handle in same header as $name
@@ -63,6 +63,24 @@ const renderTweets = (data) => {
 
 
 $(document).ready(function() {
+  const loadTweets = () => {
+    $.ajax({
+      url: '/tweets',
+      method: 'GET',
+      dataType: 'json',
+      success: (tweets) => {
+        console.log("tweets:", tweets);
+        renderTweets(tweets);
+
+      },
+      error: (err) => {
+        console.log("error:", err);
+      }
+    });
+  };
+
+  loadTweets();
+
   $("#submitTweet").submit(function(e){
     e.preventDefault();
 
