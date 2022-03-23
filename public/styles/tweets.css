@@ -27,6 +27,7 @@ article.tweet p {
 article.tweet footer {
   display: flex;
   justify-content: space-between;
+  font-size: 16px;
 }
 
 article.tweet i:hover {
