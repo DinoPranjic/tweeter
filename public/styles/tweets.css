@@ -1,0 +1,36 @@
+.tweet {
+  margin: 0 auto;
+  border: 3px solid black;
+  margin-top: 15px;
+  padding: 5px;
+}
+
+.tweet:hover {
+  box-shadow: 10px 10px 10px;
+}
+
+article.tweet header {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 40px;
+  margin-top: 5px;
+}
+
+article.tweet p {
+  height: 40px;
+  margin-top: 20px;
+  border-bottom: 3px solid darkgray;
+}
+
+article.tweet footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+article.tweet i:hover {
+  color: #4056A1;
+}
+
+
