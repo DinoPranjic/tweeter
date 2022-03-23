@@ -67,16 +67,18 @@ $(document).ready(function() {
     e.preventDefault();
 
     // slice gets rid of "text="
-    const serializedTweet = $(e.target).serialize().slice(5);
+    const serializedTweet = $(e.target).serialize();
 
-    if (serializedTweet === "") {
-      window.alert("Can't post an empty tweet!");
+    if (serializedTweet.slice(5) === "") {
+      return window.alert("Can't post an empty tweet!");
     }
 
-    if (serializedTweet.length > 140) {
-      window.alert("Your tweet is too long!")
+    if (serializedTweet.slice(5).length > 140) {
+      return window.alert("Your tweet is too long!")
     }
 
+    $.post('/tweets', serializedTweet, response => {
+    })
   });
   renderTweets(tweetData);
 });
