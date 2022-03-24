@@ -50,7 +50,6 @@ const createTweetElement = (data) => {
 
 const renderTweets = (data) => {
   const $tweetComponent = $('#tweets-container');
-  console.log('tweet:', $tweetComponent);
   $tweetComponent.empty();
 
   for(const user of data) {
@@ -69,7 +68,6 @@ $(document).ready(function() {
       method: 'GET',
       dataType: 'json',
       success: (tweets) => {
-        console.log("tweets:", tweets);
         renderTweets(tweets);
 
       },
@@ -82,20 +80,29 @@ $(document).ready(function() {
   loadTweets();
 
   $("#submitTweet").submit(function(e){
+    // prevents page from refreshing
     e.preventDefault();
 
-    // slice gets rid of "text="
     const serializedTweet = $(e.target).serialize();
 
+    //slice gets rid of "text="
     if (serializedTweet.slice(5) === "") {
-      return window.alert("Can't post an empty tweet!");
+      const errMsg = "Can't post an empty tweet!"
+      return $(".error").text(errMsg).show().delay(2000).fadeOut();
     }
 
     if (serializedTweet.slice(5).length > 140) {
-      return window.alert("Your tweet is too long!")
+      const errMsg = "Your tweet is too long!"
+      return $(".error").text(errMsg).show().delay(2000).fadeOut();
     }
 
     $.post('/tweets', serializedTweet, response => {
+      //clears form after post is succesful
+      $("#submitTweet").trigger("reset");
+      //resets counter to 140 after form is cleared
+      $(".counter").text('140');
+      //loads tweets without refreshing
+      loadTweets();
     })
   });
   renderTweets(tweetData);
