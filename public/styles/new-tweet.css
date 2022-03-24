@@ -45,3 +45,8 @@ button[type="submit"] {
 label {
   display: none;
 }
+
+.error {
+  display: none;
+  border: 3px solid red
+}
