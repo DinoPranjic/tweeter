@@ -9,18 +9,20 @@
   box-shadow: 10px 10px 10px;
 }
 
+
 article.tweet header {
   background-color: transparent;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   height: 40px;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 article.tweet p {
   height: 40px;
-  margin-top: 20px;
+  margin-top: 25px;
+  font-size: 100%;
   border-bottom: 3px solid darkgray;
 }
 
@@ -32,6 +34,10 @@ article.tweet footer {
 
 article.tweet i:hover {
   color: #4056A1;
+}
+
+.handle {
+  color: slategrey;
 }
 
 
