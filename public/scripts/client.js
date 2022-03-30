@@ -29,20 +29,25 @@ const tweetData = [
 ]
 
 const createTweetElement = (data) => {
-  const $name = $('<header><span>').text(data.user.name);
+  const $header = $('<header>');
+  const $name = $('<span>').text(data.user.name);
   const $handle = $('<span>').text(data.user.handle);
+  const $avatar = $(`<img src=${data.user.avatars}></img>`);
   const $content = $('<p>').text(data.content.text);
   const $time = $('<footer><div>').text(`${timeago.format(data["created_at"])}`);
   const $icons = $('<div>').append('<i class="fa-solid fa-flag"></i>', '<i class="fa-solid fa-retweet"></i>', '<i class="fa-solid fa-heart"></i>');
 
-  // Puts $handle in same header as $name
-  $name.append($handle);
+  //puts avatar, handle and name into same footer
+  $name.prepend($avatar);
+  $header.append($name, $handle);
+
   //Puts $icons in same footer as $time
   $time.append($icons);
 
+  // create "tweet" article
   const $tweet = $('<article class="tweet">');
 
-  $tweet.append($name, $content, $time);
+  $tweet.append($header, $content, $time);
 
   return $tweet;
 

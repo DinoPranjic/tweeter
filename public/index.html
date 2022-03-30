@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <!-- Meta Information -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <title>Tweeter - Home Page</title>
 
     <!-- External CSS -->
@@ -44,7 +45,7 @@
       </div>
     </nav>
 
-    <header>
+    <header class="profile">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -59,7 +60,6 @@
       <section class="new-tweet">
         <div class="error">
         </div>
-        <h2>Compose Tweet</h2>
         <form method="POST" action="/tweets" id="submitTweet">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
