@@ -1,6 +1,6 @@
 $(document).ready(function() {
   console.log('READY');
-  $("#tweet-text").on('keyup', function() {
+  $("#tweet-text").on('input', function() {
     let remaining = 140;
     const currentCount = $(this).val().length;
     // tracks character count
@@ -19,5 +19,5 @@ $(document).ready(function() {
       $(counter).removeClass("negativeCounter");
     }
 
-  })
+  });
 });
