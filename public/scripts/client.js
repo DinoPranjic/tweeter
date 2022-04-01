@@ -1,33 +1,3 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-const tweetData = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
 const createTweetElement = (data) => {
   const $header = $('<header>');
   const $name = $('<span>').text(data.user.name);
@@ -37,7 +7,7 @@ const createTweetElement = (data) => {
   const $time = $('<footer><div>').text(`${timeago.format(data["created_at"])}`);
   const $icons = $('<div>').append('<i class="fa-solid fa-flag"></i>', '<i class="fa-solid fa-retweet"></i>', '<i class="fa-solid fa-heart"></i>');
 
-  //puts avatar, handle and name into same footer
+  //puts avatar, handle and name into same header
   $name.prepend($avatar);
   $header.append($name, $handle);
 
@@ -51,21 +21,20 @@ const createTweetElement = (data) => {
 
   return $tweet;
 
-}
+};
 
+//adds tweets to beginning of tweets container
 const renderTweets = (data) => {
   const $tweetComponent = $('#tweets-container');
   $tweetComponent.empty();
 
-  for(const user of data) {
+  for (const user of data) {
     const $tweet = createTweetElement(user);
     $tweetComponent.prepend($tweet);
   }
-}
+};
 
-
-
-
+// uses ajax request to get tweets object
 $(document).ready(function() {
   const loadTweets = () => {
     $.ajax({
@@ -84,7 +53,7 @@ $(document).ready(function() {
 
   loadTweets();
 
-  $("#submitTweet").submit(function(e){
+  $("#submitTweet").submit(function(e) {
     // prevents page from refreshing
     e.preventDefault();
 
@@ -92,13 +61,21 @@ $(document).ready(function() {
 
     //slice gets rid of "text="
     if (serializedTweet.slice(5) === "") {
-      const errMsg = "Can't post an empty tweet!"
-      return $(".error").text(errMsg).show().delay(2000).fadeOut();
+      //clears previous errors
+      $(".error").empty();
+      const $errMsg = $('<div>').text("Can't post an empty tweet!");
+      //adds icon to errMsg
+      $errMsg.prepend('<i class="fa-solid fa-circle-exclamation"></i>');
+      return $(".error").append($errMsg).show().delay(2000).fadeOut();
     }
 
     if (serializedTweet.slice(5).length > 140) {
-      const errMsg = "Your tweet is too long!"
-      return $(".error").text(errMsg).show().delay(2000).fadeOut();
+      //clears previous errors
+      $(".error").empty();
+      const $errMsg = $('<div>').text("Your tweet is too long!");
+      //adds icon to errMsg
+      $errMsg.prepend('<i class="fa-solid fa-circle-exclamation"></i>');
+      return $(".error").append($errMsg).show().delay(2000).fadeOut();
     }
 
     $.post('/tweets', serializedTweet, response => {
@@ -108,8 +85,9 @@ $(document).ready(function() {
       $(".counter").text('140');
       //loads tweets without refreshing
       loadTweets();
-    })
+    });
+
   });
-  renderTweets(tweetData);
+
 });
 
