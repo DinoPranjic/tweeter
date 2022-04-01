@@ -5,6 +5,10 @@ Tweeter is a simple, single-page Twitter clone made using AJAX, JQuery, HTML and
 
 ## Final Product
 
+!["Screenshot of URLs page"](https://github.com/DinoPranjic/tweeter/blob/master/public/images/Server-screenshot.png)
+!["Screenshot of URLs page"](https://github.com/DinoPranjic/tweeter/blob/master/public/images/Desktop-screenshot.png)
+!["Screenshot of URLs page"](https://github.com/DinoPranjic/tweeter/blob/master/public/images/Tablet-screenshot.png)
+
 
 ## Getting Started
 
