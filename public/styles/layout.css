@@ -51,6 +51,16 @@ main {
   }
 
 }
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+
+@media only screen and (max-width: 767px) {
+  nav {
+    background-color: #000000;
+    background-image: url("/images/back-pattern.png");
+  }
+
+  main {
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+}
