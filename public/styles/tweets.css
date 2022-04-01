@@ -3,6 +3,7 @@
   border: 3px solid black;
   margin-top: 15px;
   padding: 5px;
+  max-width: 100%;
 }
 
 .tweet:hover {
@@ -20,11 +21,15 @@ article.tweet header {
 }
 
 article.tweet p {
-  height: 40px;
-  margin-top: 25px;
+  min-height: 40px;
+  margin-top: 10%;
   font-size: 100%;
-  border-bottom: 3px solid darkgray;
+  font-style: italic;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  border-bottom: 3px solid slategrey;
 }
+
 
 article.tweet footer {
   display: flex;
