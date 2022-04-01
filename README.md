@@ -6,10 +6,13 @@ Tweeter is a simple, single-page Twitter clone made using AJAX, JQuery, HTML and
 ## Final Product
 
 !["Launch the app using npm run local"](https://github.com/DinoPranjic/tweeter/blob/master/public/images/Server-screenshot.png)
+Launch the app using npm run local
 
 !["Responsive design - desktop view"](https://github.com/DinoPranjic/tweeter/blob/master/public/images/Desktop-screenshot.png)
+Responsive design - desktop view
 
 !["Responsive design - tablet view"](https://github.com/DinoPranjic/tweeter/blob/master/public/images/Tablet-screenshot.png)
+Responsive design - tablet view
 
 
 ## Getting Started
