@@ -69,7 +69,8 @@ $(document).ready(function() {
       return $(".error").append($errMsg).show().delay(2000).fadeOut();
     }
 
-    if (serializedTweet.slice(5).length > 140) {
+    // replace(/20/g, ' ') finds all instances of percent encoding and replaces with a space
+    if (serializedTweet.slice(5).replace(/%20/g, ' ').length > 140) {
       //clears previous errors
       $(".error").empty();
       const $errMsg = $('<div>').text("Your tweet is too long!");
